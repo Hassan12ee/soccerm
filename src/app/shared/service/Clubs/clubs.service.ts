@@ -14,7 +14,7 @@ export class ClubsService {
     getclubs(): Observable<Clubs[]> {
 
     return this._HttpClient.get<Clubs[]>(
-      `${Enviroment.baseUrl}/api/Clubs`
+      `/api/Clubs`
 
     );
   }
@@ -22,7 +22,7 @@ export class ClubsService {
   getclub(id:any): Observable<Clubs> {
 
     return this._HttpClient.get<Clubs>(
-      `${Enviroment.baseUrl}/api/Clubs/${id}`
+      `/api/Clubs/${id}`
 
     );
   }

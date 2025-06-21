@@ -28,17 +28,18 @@ export class AuthService {
 
   signUp(data:Register):Observable<any>
   {
-    return this._HttpClient.post(`${Enviroment.baseUrl}/api/auth/register`, data);
+    return this._HttpClient.post(`/api/auth/register`, data);
   }
 
 
 
   signIn(data: Login): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      "Accept": "*"
     });
 
-    return this._HttpClient.post(`${Enviroment.baseUrl}/api/Auth/login`, data, { headers });
+    return this._HttpClient.post(`/api/Auth/login`, data, { headers });
   }
   deCodeUserData(){
     const token = JSON.stringify(localStorage.getItem('token'));

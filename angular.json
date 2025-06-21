@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-             "outputPath": "dist/SOCCER-MASTER",
+            "outputPath": "dist/SOCCER-MASTER",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -34,9 +34,10 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": ["node_modules/@fortawesome/fontawesome-free/js/all.min.js",
-            "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-          ],
+            "scripts": [
+              "node_modules/@fortawesome/fontawesome-free/js/all.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {
@@ -74,7 +75,8 @@
               "buildTarget": "ahmed:build:production"
             },
             "development": {
-              "buildTarget": "ahmed:build:development"
+              "buildTarget": "ahmed:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

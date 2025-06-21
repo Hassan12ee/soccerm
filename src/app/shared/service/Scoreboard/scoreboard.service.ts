@@ -15,7 +15,7 @@ export class ScoreboardService {
   getscore(): Observable<Scorebord[]> {
 
     return this._HttpClient.get<Scorebord[]>(
-      `${Enviroment.baseUrl}/api/LeagueStandings`,
+      `/api/LeagueStandings`,
 
     );
   }

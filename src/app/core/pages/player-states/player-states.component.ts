@@ -25,13 +25,14 @@ export class PlayerStatesComponent implements OnInit {
     isLoading:boolean=false;
     playerStateslist!: PlayerStates;
     PlayerInfolist!: Player;
-    pos:string='FWD';
+    pos!:string;
   getPlayerStates(id:any)
   {
   this.isLoading=true;
     this._PlayerStatesService.getPlayerStates(id).subscribe({
       next : res =>{
         this.playerStateslist = res;
+
         console.log(this.playerStateslist);
         this.isLoading=false;
       },
@@ -48,6 +49,7 @@ export class PlayerStatesComponent implements OnInit {
     this._PlayerStatesService.getPlayerInfo(id).subscribe({
       next : res =>{
         this.PlayerInfolist = res;
+        this.pos = res.position;
         console.log(this.PlayerInfolist);
         this.isLoading=false;
       },
