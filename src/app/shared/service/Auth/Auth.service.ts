@@ -6,7 +6,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { jwtDecode } from "jwt-decode";
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
-import { Enviroment } from '../../../core/base/Enviroment';
+import { environment } from '../../../core/base/Enviroment';
 
 
 @Injectable({
@@ -28,7 +28,7 @@ export class AuthService {
 
   signUp(data:Register):Observable<any>
   {
-    return this._HttpClient.post(`/api/auth/register`, data);
+    return this._HttpClient.post(`${environment.apiUrl}/auth/register`, data);
   }
 
 
@@ -36,10 +36,11 @@ export class AuthService {
   signIn(data: Login): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      "Accept": "*"
+      "Accept": "*",
+      "Access-Control-Allow-Origin": "*"
     });
 
-    return this._HttpClient.post(`/api/Auth/login`, data, { headers });
+    return this._HttpClient.post(`${environment.apiUrl}/Auth/login`, data, { headers });
   }
   deCodeUserData(){
     const token = JSON.stringify(localStorage.getItem('token'));

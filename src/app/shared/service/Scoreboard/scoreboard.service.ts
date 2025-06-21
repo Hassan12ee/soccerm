@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Scorebord } from '../../interface/scorebord';
-import { Enviroment } from '../../../core/base/Enviroment';
+import { environment } from '../../../core/base/Enviroment';
 
 
 @Injectable({
@@ -15,7 +15,7 @@ export class ScoreboardService {
   getscore(): Observable<Scorebord[]> {
 
     return this._HttpClient.get<Scorebord[]>(
-      `/api/LeagueStandings`,
+      `${environment.apiUrl}/LeagueStandings`,
 
     );
   }

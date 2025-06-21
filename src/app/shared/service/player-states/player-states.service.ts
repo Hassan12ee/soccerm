@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { Player, PlayerStates } from '../../interface/Player';
-import { Enviroment } from '../../../core/base/Enviroment';
+import {  environment } from '../../../core/base/Enviroment';
 
 @Injectable({
   providedIn: 'root'
@@ -13,14 +13,14 @@ export class PlayerStatesService {
     getPlayerInfo(id:any): Observable<Player> {
 
       return this._HttpClient.get<Player>(
-        `/api/Players/${id}`
+        `${environment.apiUrl}/Players/${id}`
 
       );
     }
         getPlayerStates(id:any): Observable<PlayerStates> {
 
       return this._HttpClient.get<PlayerStates>(
-        `/api/PlayerStats/${id}`
+        `${environment.apiUrl}/PlayerStats/${id}`
 
       );
     }
