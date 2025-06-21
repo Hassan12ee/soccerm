@@ -1,0 +1,49 @@
+<section class="featured-article">
+  <div class="container">
+    <div class="split-article">
+      <div class="article-images">
+        <img src="https://images.ps-aws.com/c?url=https%3A%2F%2Fimages.teamtalk.com%2Fcontent%2Fuploads%2F2024%2F09%2F09114355%2FPatrick-Dorgu-next-to-Erik-ten-Hag-and-the-Manchester-United-badge-1320x742.jpg" alt="Player in Liverpool jersey" class="split-image">
+        <!-- <img src="https://th.bing.com/th?id=OIF.MmTFhEWbdLCYqP5%2b458gFA&rs=1&pid=ImgDetMain" alt="Player in Real Madrid jersey" class="split-image"> -->
+      </div>
+      <div class="article-content">
+        <div class="article-meta">
+          <span class="author">James Marshmet</span>
+          <span class="time">12 hours ago</span>
+        </div>
+        <h1 class="article-title">Man Utd battle Tottenham to sign €35m Serie A star branded ‘next Gareth Bale’;</h1>
+        <p class="article-description">Manchester United are to launch a bid to rival Tottenham for a Danish teenager, Newcastle are planning a giant offer to sign a classy Inter Milan star, an Arsenal man is wanted back by his former club, while two Euro giants will compete to prise Mo Salah away from Liverpool.</p>
+        <div class="article-tags">
+          <span class="tag">Man United</span>
+          <span class="tag">Tottenham</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Featured Articles -->
+<section class="featured-articles">
+  <div class="container">
+    <h2 class="section-title">Featured Articles</h2>
+    <div class="articles-grid">
+      <!-- Featured Article Card 1 -->
+       @for (news of Newslist; track $index) {
+      <div class="article-card">
+        <img [src]="news.urlToImage" alt="Football managers" class="card-image">
+        <div class="card-content">
+          <h3 class="card-title">{{news.title}}</h3>
+          <span class="card-time">{{news.publishedAt}}</span>
+        </div>
+      </div>
+    }
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Main Featured Article -->
+
+
+
