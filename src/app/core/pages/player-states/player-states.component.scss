@@ -738,10 +738,49 @@
   opacity: 0.95;
 }
 
-.rw-badge-pro-v2 {
+.DEF-badge-pro-v2 {
+  position: absolute;
+  right: 65px;
+  top: 200px;
+  background: #991b1b;
+  color: #fff;
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+.GKP-badge-pro-v2 {
+  position: absolute;
+  right: 65px;
+  top: 235px;
+  background: #991b1b;
+  color: #fff;
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+.MID-badge-pro-v2 {
   position: absolute;
   right: 62px;
-  top: 200px;
+  top: 125px;
+  background: #991b1b;
+  color: #fff;
+  border-radius: 16px;
+  padding: 4px 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 2;
+}
+.FWD-badge-pro-v2 {
+  position: absolute;
+  right: 59px;
+  top: 50px;
   background: #991b1b;
   color: #fff;
   border-radius: 16px;

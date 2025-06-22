@@ -19,8 +19,9 @@
           <tbody>
 
 
-            <tr *ngFor="let team of Scoreboardlist; let i = index" [ngClass]="'rank-' + (i + 1)">
-              <td class="position-cell col-pos">
+            <tr *ngFor="let team of Scoreboardlist; let i = index" [ngClass]="'rank-' + (i + 1)" (click)="navigateToSquad(team.clubId)">
+
+              <td class="position-cell col-pos" >
                 <span class="colored-bar" *ngIf="i < 6 || i >= 17" [ngStyle]="{'background': getBarColor(i)}"></span>
                 <span class="pos-number">{{team.position}}</span>
               </td>
@@ -53,7 +54,7 @@
       <div class="league-stats-row">
         <div class="league-stats-card">
           <div class="league-stats-title">Top rated</div>
-          <div class="league-stats-player first-player">
+          <div class="league-stats-player first-player" (click)="navigateToplayer(294)">
             <img src="https://images.fotmob.com/image_resources/playerimages/292462.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Mohamed Salah</div>
@@ -61,7 +62,7 @@
             </div>
             <span class="league-stats-badge league-stats-badge-main">8.09</span>
           </div>
-          <div class="league-stats-player">
+          <div class="league-stats-player" (click)="navigateToplayer(201)">
             <img src="https://images.fotmob.com/image_resources/playerimages/1096353.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Cole Palmer</div>
@@ -69,18 +70,18 @@
             </div>
             <span class="league-stats-badge">7.70</span>
           </div>
-          <div class="league-stats-player">
-            <img src="https://images.fotmob.com/image_resources/playerimages/422685.png" class="league-stats-avatar">
+          <div class="league-stats-player" (click)="navigateToplayer(400)">
+            <img src="https://images.fotmob.com/image_resources/playerimages/690107.png" class="league-stats-avatar">
             <div class="league-stats-info">
-              <div class="league-stats-name">Bruno Fernandes</div>
-              <div class="league-stats-club"><img src='https://images.fotmob.com/image_resources/logo/teamlogo/10260_xsmall.png' class='league-stats-club-logo'> Manchester United</div>
+              <div class="league-stats-name">Alexander Isak</div>
+              <div class="league-stats-club"><img src='https://images.fotmob.com/image_resources/logo/teamlogo/10261_xsmall.png' class='league-stats-club-logo'> Newcastle United</div>
             </div>
             <span class="league-stats-badge">7.61</span>
           </div>
         </div>
         <div class="league-stats-card">
           <div class="league-stats-title">Top scorers</div>
-          <div class="league-stats-player first-player">
+          <div class="league-stats-player first-player" (click)="navigateToplayer(294)">
             <img src="https://images.fotmob.com/image_resources/playerimages/292462.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Mohamed Salah</div>
@@ -88,7 +89,7 @@
             </div>
             <span class="league-stats-badge league-stats-badge-main">28</span>
           </div>
-          <div class="league-stats-player">
+          <div class="league-stats-player" (click)="navigateToplayer(400)">
             <img src="https://images.fotmob.com/image_resources/playerimages/690107.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Alexander Isak</div>
@@ -96,7 +97,7 @@
             </div>
             <span class="league-stats-badge">23</span>
           </div>
-          <div class="league-stats-player">
+          <div class="league-stats-player" (click)="navigateToplayer(354)">
             <img src="https://images.fotmob.com/image_resources/playerimages/737066.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Erling Haaland</div>
@@ -107,7 +108,7 @@
         </div>
         <div class="league-stats-card">
           <div class="league-stats-title">Top assists</div>
-          <div class="league-stats-player first-player">
+          <div class="league-stats-player first-player " (click)="navigateToplayer(294)">
             <img src="https://images.fotmob.com/image_resources/playerimages/292462.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Mohamed Salah</div>
@@ -115,7 +116,7 @@
             </div>
             <span class="league-stats-badge league-stats-badge-main">18</span>
           </div>
-          <div class="league-stats-player">
+          <div class="league-stats-player" (click)="navigateToplayer(411)">
             <img src="https://images.fotmob.com/image_resources/playerimages/521148.png" class="league-stats-avatar">
             <div class="league-stats-info">
               <div class="league-stats-name">Jacob Murphy</div>
@@ -123,11 +124,11 @@
             </div>
             <span class="league-stats-badge">11</span>
           </div>
-          <div class="league-stats-player">
-            <img src="https://images.fotmob.com/image_resources/playerimages/961995.png" class="league-stats-avatar">
+          <div class="league-stats-player"(click)="navigateToplayer(400)">
+            <img src="https://images.fotmob.com/image_resources/playerimages/690107.png" class="league-stats-avatar">
             <div class="league-stats-info">
-              <div class="league-stats-name">Bukayo Saka</div>
-              <div class="league-stats-club"><img src='https://images.fotmob.com/image_resources/logo/teamlogo/9825_xsmall.png' class='league-stats-club-logo'> Arsenal</div>
+              <div class="league-stats-name">Alexander Isak</div>
+              <div class="league-stats-club"><img src='https://images.fotmob.com/image_resources/logo/teamlogo/10261_xsmall.png' class='league-stats-club-logo'> Newcastle United</div>
             </div>
             <span class="league-stats-badge">10</span>
           </div>
@@ -185,9 +186,9 @@
         <div class="top-players-header">
           <span class="top-players-title">Top players</span>
         </div>
-        <div class="top-players-row">
+        <div class="top-players-row" >
           <span class="top-players-rank">1</span>
-          <div class="top-players-avatar-wrapper">
+          <div class="top-players-avatar-wrapper"(click)="navigateToplayer(294)">
             <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/292462.png" />
             <img class="top-players-club-logo" src="https://images.fotmob.com/image_resources/logo/teamlogo/8650_xsmall.png" />
           </div>
@@ -203,7 +204,7 @@
         <div class="top-players-list">
           <div class="top-players-row">
             <span class="top-players-rank">2</span>
-            <div class="top-players-avatar-wrapper">
+            <div class="top-players-avatar-wrapper"(click)="navigateToplayer(201)">
               <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/1096353.png" />
               <img class="top-players-club-logo" src="https://images.fotmob.com/image_resources/logo/teamlogo/8455_xsmall.png" />
             </div>
@@ -216,16 +217,16 @@
           <div class="top-players-row">
             <span class="top-players-rank">3</span>
             <div class="top-players-avatar-wrapper">
-              <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/863098.png" />
-              <img class="top-players-club-logo" src="https://images.fotmob.com/image_resources/logo/teamlogo/8602_xsmall.png" />
+              <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/690107.png" />
+              <img class="top-players-club-logo" src="https://images.fotmob.com/image_resources/logo/teamlogo/10261_xsmall.png" />
             </div>
             <div class="top-players-info">
-              <div class="top-players-name">Matheus Cunha</div>
-              <div class="top-players-match">Wolverhampton</div>
+              <div class="top-players-name">Alexander Isak</div>
+              <div class="top-players-match">Newcastle United</div>
             </div>
             <span class="top-players-rating rating-blue">7.65</span>
           </div>
-          <div class="top-players-row">
+          <div class="top-players-row" (click)="navigateToplayer(400)">
             <span class="top-players-rank">4</span>
             <div class="top-players-avatar-wrapper">
               <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/422685.png" />
@@ -237,7 +238,7 @@
             </div>
             <span class="top-players-rating rating-cyan">7.59</span>
           </div>
-          <div class="top-players-row">
+          <div class="top-players-row"(click)="navigateToplayer(97)">
             <span class="top-players-rank">5</span>
             <div class="top-players-avatar-wrapper">
               <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/923312.png" />
@@ -249,7 +250,7 @@
             </div>
             <span class="top-players-rating rating-cyan">7.49</span>
           </div>
-          <div class="top-players-row">
+          <div class="top-players-row" (click)="navigateToplayer(89)">
             <span class="top-players-rank">6</span>
             <div class="top-players-avatar-wrapper">
               <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/330643.png" />
@@ -265,7 +266,7 @@
             <span class="top-players-rating rating-blue">7.41
             </span>
           </div>
-          <div class="top-players-row">
+          <div class="top-players-row"(click)="navigateToplayer(41)">
             <span class="top-players-rank">7</span>
             <div class="top-players-avatar-wrapper">
               <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/465960.png" />
@@ -278,14 +279,14 @@
             </div>
             <span class="top-players-rating rating-blue">7.47</span>
           </div>
-          <div class="top-players-row">
+          <div class="top-players-row"(click)="navigateToplayer(354)" >
             <span class="top-players-rank">8</span>
             <div class="top-players-avatar-wrapper">
-              <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/1070712.png" />
+              <img class="top-players-avatar" src="https://images.fotmob.com/image_resources/playerimages/737066.png" />
               <img class="top-players-club-logo" src="https://images.fotmob.com/image_resources/logo/teamlogo/8456_xsmall.png" />
             </div>
             <div class="top-players-info">
-              <div class="top-players-name">Josko Gvardiol</div>
+              <div class="top-players-name">Erling Haaland</div>
               <div class="top-players-match">Manchester City</div>
             </div>
             <span class="top-players-rating rating-cyan">7.36</span>
@@ -295,7 +296,7 @@
       <div class="top-teams-card">
         <div class="top-teams-title">Top teams</div>
         <div class="top-teams-list">
-          <div class="top-teams-row" *ngFor="let team of topTeams; let i = index">
+          <div class="top-teams-row" *ngFor="let team of topTeams; let i = index" (click)="navigateToSquad(team.clubId)">
             <span class="top-teams-rank">{{i + 1}}</span>
             <img class="top-teams-logo" [src]="team.logo" />
             <span class="top-teams-name">{{team.name}}</span>

@@ -11,6 +11,7 @@ import { SquadComponent } from './core/pages/squad/squad.component';
 import { StatsComponent } from './core/pages/stats/stats.component';
 import { ScorebordComponent } from './core/pages/scorebord/scorebord.component';
 import { TransfersComponent } from './core/pages/transfers/transfers.component';
+import { userGuard } from './shared/guard/user.guard';
 
 
 export const routes: Routes = [
@@ -19,14 +20,14 @@ export const routes: Routes = [
   {path: "register",component:RegisterComponent},
   {path: "login",component:LoginComponent},
   {path: "news",component:NewsComponent},
-  {path: "club",component:ClubComponent},
-  {path: "League",component:LeagueComponent , children: [
+  {path: "club",component:ClubComponent , canActivate :[userGuard]},
+  {path: "League",component:LeagueComponent , canActivate :[userGuard] , children: [
     {path: "Scoreboard",component:ScorebordComponent},
     {path: "Stats",component:StatsComponent},
     {path: "Transfers",component:TransfersComponent}
   ]},
-  {path: "player-states/:id",component:PlayerStatesComponent},
-  {path: "squad/:id",component:SquadComponent},
+  {path: "player-states/:id",component:PlayerStatesComponent , canActivate :[userGuard]},
+  {path: "squad/:id",component:SquadComponent , canActivate :[userGuard]},
 
 
   {path:"**",component: Page404Component}

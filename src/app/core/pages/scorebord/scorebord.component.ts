@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard.service';
 import { Scorebord } from '../../../shared/interface/scorebord';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scorebord',
@@ -14,7 +14,7 @@ import { Scorebord } from '../../../shared/interface/scorebord';
 export class ScorebordComponent {
     isLoading:boolean=false;
     Scoreboardlist!:Scorebord[];
-  constructor(private _ScoreboardService:ScoreboardService) { }
+  constructor(private _ScoreboardService:ScoreboardService ,private router: Router) { }
   ngOnInit(): void {
       if( typeof localStorage!= 'undefined')
       localStorage.setItem('currentpage',`/League/Scoreboard`);
@@ -38,7 +38,9 @@ export class ScorebordComponent {
     })
 
   }
-
+  navigateToSquad(club: any) {
+    this.router.navigate([`/squad/${club}`]);
+  }
 
 
   getBarColor(index: number): string {

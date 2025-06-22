@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ScoreboardService } from '../../../shared/service/Scoreboard/scoreboard.service';
 import { AuthService } from '../../../shared/service/Auth/Auth.service';
 import { Scorebord } from '../../../shared/interface/scorebord';
+
 
 @Component({
   selector: 'app-home',
@@ -57,6 +58,7 @@ this.getscore();
         rating: '8.0',
         top: '11%',
         left: '50%',
+        id:201,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8678_xsmall.png' // Bournemouth
     },
     {
@@ -65,6 +67,7 @@ this.getscore();
         rating: '8.6',
         top: '30%',
         left: '50%',
+        id:367,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/10260_xsmall.png' // Manchester United
     },
     {
@@ -73,6 +76,7 @@ this.getscore();
         rating: '8.9',
         top: '30%',
         left: '12%',
+        id:101,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/9937_xsmall.png' // Brentford
     },
     {
@@ -81,6 +85,7 @@ this.getscore();
         rating: '8.2',
         top: '52%',
         left: '35%',
+        id:41,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/10252_xsmall.png' // Aston Villa
     },
     {
@@ -89,6 +94,7 @@ this.getscore();
         rating: '9.1',
         top: '52%',
         left: '65%',
+        id:201,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8455_xsmall.png', // Chelsea
         star: true
     },
@@ -98,6 +104,7 @@ this.getscore();
         rating: '8.1',
         top: '30%',
         left: '90%',
+        id:201,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8456_xsmall.png' // Manchester City
     },
     {
@@ -106,6 +113,7 @@ this.getscore();
         rating: '8.1',
         top: '71%',
         left: '12%',
+        id:201,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8650_xsmall.png' // Liverpool
     },
     {
@@ -114,6 +122,7 @@ this.getscore();
         rating: '8.0',
         top: '71%',
         left: '35%',
+        id:201,
         clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8456_xsmall.png' // Manchester City
     },
     {
@@ -122,6 +131,7 @@ this.getscore();
       rating: '8.4',
       top: '71%',
       left: '65%',
+      id:201,
       clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/10203_xsmall.png' // Nottingham Forest
   },
   {
@@ -130,6 +140,7 @@ this.getscore();
       rating: '8.4',
       top: '71%',
       left: '90%',
+      id:201,
       clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/9937_xsmall.png' // Brentford
   },
   {
@@ -138,6 +149,7 @@ this.getscore();
       rating: '8.6',
       top: '90%',
       left: '50%',
+      id:201,
       clubLogo: 'https://images.fotmob.com/image_resources/logo/teamlogo/10252_xsmall.png' // Aston Villa
   }
 ];
@@ -225,36 +237,43 @@ topTeams = [
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8456_xsmall.png',
     name: 'Manchester City',
-    rating: '7.12'
+    rating: '7.12',
+    clubId: "13",
   },
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8650_xsmall.png',
     name: 'Liverpool',
-    rating: '7.09'
+    rating: '7.09',
+    clubId: "12",
   },
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/9825_xsmall.png',
     name: 'Arsenal',
+    clubId: "2",
     rating: '7.05'
   },
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/8455_xsmall.png',
     name: 'Chelsea',
+    clubId: "7",
     rating: '7.02'
   },
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/9937_xsmall.png',
     name: 'Brentford',
+    clubId: "4",
     rating: '7.00'
   },
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/10261_xsmall.png',
     name: 'Newcastle',
+    clubId: "15",
     rating: '6.98'
   },
   {
     logo: 'https://images.fotmob.com/image_resources/logo/teamlogo/10203_xsmall.png',
     name: 'Nottingham Forest',
+    clubId: "16",
     rating: '6.95'
   }
 ];
@@ -265,7 +284,7 @@ isMobile = false;
 //   this.checkScreenSize();
 //   window.addEventListener('resize', this.checkScreenSize.bind(this));
 // }
-constructor(private _ScoreboardService:ScoreboardService ,public _AuthService:AuthService) {
+constructor(private _ScoreboardService:ScoreboardService ,public _AuthService:AuthService ,private router: Router) {
   if (typeof window !== 'undefined') {
     this.checkScreenSize();
     window.addEventListener('resize', this.checkScreenSize.bind(this));
@@ -273,10 +292,14 @@ constructor(private _ScoreboardService:ScoreboardService ,public _AuthService:Au
 
 
 }
-
+  navigateToSquad(club: any) {
+    this.router.navigate([`/squad/${club}`]);
+  }
 
 checkScreenSize() {
   this.isMobile = window.matchMedia('(max-width: 768px)').matches;
 }
-
+    navigateToplayer(player: any) {
+    this.router.navigate([`player-states/${player}`]);
+  }
 }
